@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Basics</title>
+</head>
+<body>
+     <header><h1>
+         Vue Styling
+     </h1></header>
+     <section id="container">
+        <input placeholder="Enter 'user1/user2' " class="in" type="text" v-on:input="styleMe">
+        <p v-if='warning1 == true' class="legend1" >No Matches</p>
+        <p v-else-if=" warning1 === false && user1Style === 'user2' || user1Style === 'user1' || user1Style === 'User2' || user1Style === 'User1'" class="legend2" 
+        >Have Matched!</p>
+        <p v-if="user1Style === '' || user1Style != 'user2' && user1Style != 'user1' && user1Style != 'User2' && user1Style != 'User1'" class="p1" id="toggle">
+            Style Me!
+        </p>
+        <p v-if="user1Style === 'user1' || user1Style === 'User1'" :class="{user1: user1Style}" id="toggle">
+            Style Me!
+        </p>
+        <p v-if="user1Style === 'user2' || user1Style === 'User2'" :class="{user2: user1Style}" id="toggle">
+            Style Me!
+        </p>
+
+        <button onclick="myFunc()" id="btn"></button>
+        <input type="text" class="in2" v-on:input="styleMeInLine" placeholder="Enter a color">
+        <p v-if="inlineStyle === ''" class="legend">Available Colors(Black/ Red/ Blue)</p>
+        <p v-if='warning2 === true' class="legend1">No Matches</p>
+        <p v-else-if=" warning2 === false && inlineStyle === 'black' || inlineStyle === 'blue' || inlineStyle === 'red' || inlineStyle === 'Black' || inlineStyle === 'Blue' || inlineStyle === 'Red'" class="legend2">Have Matched!</p>
+        <p v-if="inlineStyle === 'blue' || inlineStyle === 'Blue'" :class="{blue: inlineStyle}">
+            Style me Inline!
+        </p>
+        <p v-if="inlineStyle === 'red' || inlineStyle === 'Red'" :class="{red: inlineStyle}">
+            Style me Inline!
+        </p>
+        <p v-if="inlineStyle === 'black' || inlineStyle === 'Black'" :class="{black: inlineStyle}">
+            Style me Inline!
+        </p>
+        <p v-if="inlineStyle === ''|| inlineStyle != 'black' && inlineStyle != 'blue' && inlineStyle != 'red' && inlineStyle != 'Black' && inlineStyle != 'Blue' && inlineStyle != 'Red'" class="p2">
+            Style me Inline!
+        </p>
+        
+        
+     </section>
+    
+
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
